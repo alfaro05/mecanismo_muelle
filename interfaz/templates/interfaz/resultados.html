@@ -1,0 +1,97 @@
+{% extends 'interfaz/base.html' %}
+{% block name %}Resultados{% endblock %}
+{% block body_content %}
+{% load static %}
+<h2>Resultados</h2>
+<p>A partir de la información suministrada, se producen los siguientes resultados:</p>
+<div class="cool-form">
+    <div class="form-column">
+        <h3>Posiciones: (m)</h3>
+        <p>Nodo A:</p>
+        <p>({{ax}},{{ay}})</p>
+        <p>Nodo B:</p>
+        <p>({{bx}},{{by}})</p>
+        <p>Nodo C:</p>
+        <p>({{cx}},{{cy}})</p>
+        <p>Punto acoplador (P):</p>
+        <p>({{px}},{{py}})</p>
+    </div>
+    <div class="form-column">
+        <h3>Velocidades: (m/s)</h3>
+        <p>Nodo A:</p>
+        <p>({{v_ax}},{{v_ay}})</p>
+        <p>Nodo B:</p>
+        <p>({{v_bx}},{{v_by}})</p>
+        <p>Nodo C:</p>
+        <p>({{v_cx}},{{v_cy}})</p>
+        <p>Punto acoplador (P):</p>
+        <p>({{v_px}},{{v_py}})</p>
+    </div>
+    <div class="form-column">
+        <h3>Aceleración: (m/s<sup>2</sup>)</h3>
+        <p>A, B y P:</p>
+        <p>({{acc_x}},{{acc_y}})</p>
+        <p>C:</p>
+        <p>(0,0)</p>
+    </div>
+</div>
+<h3>Eslabones</h3>
+<div class="cool-form results-bar">
+    <div class="form-column">
+        <p>Eslabón</p>
+        <hr color="f7ce3e">
+        <p>Velocidad angular (rad/s)</p>
+        <p>Aceleración angular (rad/s<sup>2</sup>)</p>
+    </div>
+    <div class="form-column">
+        <p>1</p>
+        <hr color="f7ce3e">
+        <p>0.0</p>
+        <p>0.0</p>
+    </div>
+    <div class="form-column">
+        <p>2</p>
+        <hr color="f7ce3e">
+        <p>{{omega}}</p>
+        <p>{{alpha}}</p>
+    </div>
+    <div class="form-column">
+        <p>3</p>
+        <hr color="f7ce3e">
+        <p>0.0</p>
+        <p>0.0</p>
+    </div>
+    <div class="form-column">
+        <p>4</p>
+        <hr color="f7ce3e">
+        <p>{{omega}}</p>
+        <p>{{alpha}}</p>
+    </div>
+</div>
+<p>Debido al diseño propuesto, los brazos del mecanismo son de la misma longitud
+    y la base sobre la que va montado el bote es de la misma longitud que la
+    separación entre los brazos, de manera que los eslabones 2 y 4 tienen la
+    misma longitud, así como los eslabones 1 y 3 que tienen la misma longitud. Debido a esto,
+    <b>siempre</b> se cumple la condición de Grashof y la entrada del sistema es una manivela.
+</p>
+<div>
+    <h3>¿Se puede subir el bote?</h3>
+    {% if reach_flag %}
+        <p>
+            El bote <b>SÍ</b> puede subirse al muelle. Pero se requiere desplazar
+            {{offset}} (m) para estar en la trayectora del mecanismo.
+        </p>
+    {% else %}
+            El bote <b>NO</b> puede subirse al muelle, el nivel del agua es muy bajo.
+            Solo hay que esperar a que suba la marea, ¡paciencia!
+    {% endif %}
+</div>
+<h2>Curva de acoplador</h2>
+<p>
+    El movimiento del mecanismo y el punto de acople entre el sistema y el bote estrá
+    restringido por la forma del muelle. Se muestra la curva de acoplador para la trayectoria
+    del punto P en los cuadrantes 1, 2 y 3. En rojo se observa la ubicación de parte de la superficie
+    del muelle.
+</p>
+<img src="{% static 'img/plot.png' %}" alt="Curva de acoplador" width="640px">
+{% endblock %}

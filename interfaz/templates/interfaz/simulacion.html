@@ -1,0 +1,36 @@
+{% extends 'interfaz/base.html' %}
+
+{% block title %}Simulación{% endblock %}
+{% block body_content %}
+<form action="resultados" method="post">
+    {% csrf_token %}
+    <div class="cool-form">
+        <div class="form-column">
+            <label><b><u>Sobre el mecanismo</u></b></label>
+            <label for="l2">Largo del brazo (m)</label>
+            <input type="text" name="l2">
+            <label for="l3">Ancho de la base (m)</label>
+            <input type="text" name="l3"> <br>
+            <label><b><u>Sobre el movimiento</u></b></label>
+            <label for="omega">Velocidad angular (rad/s)</label>
+            <input type="text" name="omega">
+            <label for="alpha">Aceleración angular (rad/s<sup>2</sup>)</label>
+            <input type="text" name="alpha">
+        </div>
+        <div class="form-column">
+            <label><b><u>Condiciones</u></b></label>
+            <label>Distancia entre el</label>
+            <label for="dist">bote y el muelle (m)</label>
+            <input type="text" name="dist">
+            <label>Altura hasta la</label>
+            <label for="alt">superficie del agua (m)</label>
+            <input type="text" name="alt">
+            <label>Ángulo del brazo θ<sub>2</sub></label>
+            <label for="theta">(antihorario,radianes)</label>
+            <input type="text" name="theta">
+        </div>
+    </div>
+    <input type="submit" value="Submit" class="cool-button">
+</form>
+    
+{% endblock %}
