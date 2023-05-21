@@ -65,11 +65,12 @@ hr{
 .body{
     padding: 2%;
 }
-#run-sim{
+.run-sim{
     background-color: var(--elements-color);
     border-radius: 5px;
     font-family: 'Andika', sans-serif;
-    justify-self: center;
+    width:fit-content;
+    text-align: center;
 }
 .footer{
     text-align: center;
@@ -98,4 +99,28 @@ hr{
 }
 .results-bar div{
     margin: 1%;
+}
+.submit-button{
+    justify-self: center;
+    margin-left: auto;
+}
+a{
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bolder;
+    text-shadow: -1px 0px 1px black, 1px 0px 1px black,
+        0px 1px 1px black, 0px -1px 1px black
+}
+a.run-sim:hover{
+    background-color: var(--text-color);
+    color: var(--strong-color);
+    text-shadow: none;
+}
+.button-area{
+    display: flex;
+    flex-direction: column;
+}
+.button-area input, .button-area a{
+    justify-self:stretch;
+    margin-left:47%;
 }
