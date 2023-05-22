@@ -130,7 +130,6 @@ class Mechanism:
         plt.legend()
         dir_path = os.path.dirname(os.path.realpath(__file__))
         if(os.path.exists(dir_path+'/static/img/plot.png')):
-            print("borramos el gorro!!!")
             os.remove(dir_path+'/static/img/plot.png')
         plt.savefig('interfaz/static/img/plot.png')
         plt.close()

@@ -8,6 +8,9 @@ def index(request):
 def simulacion(request):
     return render(request, "interfaz/simulacion.html")
 
+def sobre_el_proyecto(request):
+    return render(request, "sobre_el_proyecto.html")
+
 def resultados(request):
     #Receive the arguments from the user through HTTP method
     l2=float(request.POST["l2"])

@@ -33,26 +33,29 @@ h1, h2, h3{
 }
 .banner div{
     display: grid;
-    grid-template-areas: "top-a"
-    "bottom-a";
+    grid-template-areas: "top-area"
+    "btn-area"
+    "bottom-area";
 }
 .banner img{
     justify-self:flex-end;
     margin-left: auto;
 }
 .banner div h1{
-    grid-area: top-a;
+    grid-area: top-area;
 }
 #menu-button{
-    width: 20%;
+    width: 55px;
     text-align: center;
     text-justify: center;
+    grid-area: btn-area;
+    cursor: pointer;
     font-size: larger;
     border: 1px var(--elements-color) solid;
     border-radius: 5px;
-    grid-area: bottom-a;
     font-weight: bold;
     text-shadow: 1px 1px 1px black;
+    position: relative;
 }
 #menu-button:hover{
     background-color:var(--elements-color);
@@ -75,6 +78,10 @@ hr{
 .footer{
     text-align: center;
     color: var(--elements-color);
+}
+.footer p{
+    margin: 0px;
+    padding: 0px;
 }
 .cool-form{
     display: flex;
@@ -103,6 +110,7 @@ hr{
 .submit-button{
     justify-self: center;
     margin-left: auto;
+    width: 80px;
 }
 a{
     color: var(--text-color);
@@ -111,7 +119,7 @@ a{
     text-shadow: -1px 0px 1px black, 1px 0px 1px black,
         0px 1px 1px black, 0px -1px 1px black
 }
-a.run-sim:hover{
+a.run-sim:hover, .menu-item:hover{
     background-color: var(--text-color);
     color: var(--strong-color);
     text-shadow: none;
@@ -123,4 +131,22 @@ a.run-sim:hover{
 .button-area input, .button-area a{
     justify-self:stretch;
     margin-left:47%;
+}
+.dropdown{
+    grid-area: bottom-area;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+}
+.menu-item{
+    background-color: var(--bg-color);
+    color: var(--elements-color);
+    min-width:fit-content;
+}
+.show-content{
+    visibility: visible;
+    opacity: 1;
 }

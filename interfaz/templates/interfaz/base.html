@@ -16,10 +16,15 @@
         <div class="banner">
             <div>
                 <h1>Mecanismo de muelle</h1>
-                <p id="menu-button">≣ Menu</p>
+                <p id="menu-button">≣ Menu</p> <br>
+                <div class="dropdown" id="dropdown">
+                    <a href="{% url 'simulacion' %}" class="menu-item">Simulación</a>
+                    <a href="{% url 'sobre_el_proyecto' %}" class="menu-item">Sobre el proyecto</a>
+                    <a href="#" class="menu-item">Contacto</a>
+                </div>
             </div>
             <img src="{% static 'img/robot_bote.png' %}" alt="Logo de robot en bote"
-            width="200px">
+            width="200px" height="200px">
         </div>
         <hr color=#f7ce3e>
         <div class="body">
@@ -29,8 +34,8 @@
         </div>
         <hr color=#f7ce3e>
         <div class="footer">
-            <p>Creado por Alberto Alfaro utilizando Django. 2023.</p>
-            <p>GNU General Public License v3.0</p>
+            <p>Creado por Alberto Alfaro utilizando Django, 2023.</p>
+            <p>GNU General Public License v3.0.</p>
             <p>Repositorio disponible <a href="https://github.com/alfaro05/mecanismo_muelle/"><b>aquí</b></a>.</p>
         </div>
         <script src="{% static '/js/script.js'%}"></script>
