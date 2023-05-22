@@ -9,7 +9,7 @@ def simulacion(request):
     return render(request, "interfaz/simulacion.html")
 
 def sobre_el_proyecto(request):
-    return render(request, "sobre_el_proyecto.html")
+    return render(request, "interfaz/sobre_el_proyecto.html")
 
 def resultados(request):
     #Receive the arguments from the user through HTTP method
@@ -48,3 +48,6 @@ def resultados(request):
         result_dict[key]=round(float(result_dict[key]),3)
 
     return render(request, "interfaz/resultados.html",result_dict)
+
+def contacto(request):
+    return render(request, "interfaz/contacto.html")
