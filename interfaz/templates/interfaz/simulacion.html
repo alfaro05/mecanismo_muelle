@@ -5,6 +5,14 @@
 {% if error_flag %}
 <p class="error">ERROR: Por favor escriba datos numéricos válidos usando un "." decimal.</p>
 {% endif %}
+<h2>Simulación</h2>
+<p>
+    En el diseño propuesto, los eslabones opuestos son de la misma longitud. De manera que
+    los brazos tiene la misma longitud y la base tiene la misma longitud que la separación de
+    los brazos en la superficie fija del muelle (eslabón 1). Asimismo, por el diseño, la posición angular de
+    los eslabones está restringida a una única entrada, que corresponde a θ<sub>2</sub>. Esta
+    cualidad también restringe la magnitud de la velocidad y aceleración angular.
+</p>
 <form action="resultados" method="post">
     {% csrf_token %}
     <div class="cool-form">
