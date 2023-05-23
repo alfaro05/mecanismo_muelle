@@ -6,21 +6,24 @@ def index(request):
     return render(request, "interfaz/index.html")
 
 def simulacion(request):
-    return render(request, "interfaz/simulacion.html")
+    return render(request, "interfaz/simulacion.html",{"error_flag":False})
 
 def sobre_el_proyecto(request):
     return render(request, "interfaz/sobre_el_proyecto.html")
 
 def resultados(request):
+    no_error_flag = True #Flag to handle exceptions
     #Receive the arguments from the user through HTTP method
-    l2=float(request.POST["l2"])
-    l3=float(request.POST["l3"])
-    omega=float(request.POST["omega"])
-    alpha=float(request.POST["alpha"])
-    dist=float(request.POST["dist"])
-    alt=float(request.POST["alt"])
-    theta=float(request.POST["theta"])
-
+    try:
+        l2=float(request.POST["l2"])
+        l3=float(request.POST["l3"])
+        omega=float(request.POST["omega"])
+        alpha=float(request.POST["alpha"])
+        dist=float(request.POST["dist"])
+        alt=float(request.POST["alt"])
+        theta=float(request.POST["theta"])
+    except:
+        return render(request, "interfaz/simulacion.html",{"error_flag":True})
     #Create a mechanism object from the imported module
     #using the input from the user
     mecha = mechanisms.Mechanism(theta, l2, l3, l2, alt)
@@ -44,10 +47,14 @@ def resultados(request):
                    "acc_x":acceleration[0],"acc_y":acceleration[1],"reach_flag":can_be_lifted,
                    "offset":boat_offset,"omega":omega,"alpha":alpha}
     #Loop rounds the results to be more user-friendly.
+    
     for key in result_dict.keys():
         result_dict[key]=round(float(result_dict[key]),3)
-
+    
     return render(request, "interfaz/resultados.html",result_dict)
 
 def contacto(request):
     return render(request, "interfaz/contacto.html")
+
+def robot(request):
+    return render(request, "interfaz/robot.html")

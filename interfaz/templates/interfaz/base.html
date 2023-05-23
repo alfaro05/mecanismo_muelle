@@ -15,16 +15,22 @@
     <div class="grid-container">
         <div class="banner">
             <div>
-                <h1>Mecanismo de muelle</h1>
-                <p id="menu-button">≣ Menu</p> <br>
+                <a href="{% url 'index' %}">
+                    <h1>Mecanismo de muelle</h1>
+                </a>
+                <p id="menu-button">≣ Menu</p>
                 <div class="dropdown" id="dropdown">
+                    <a href="{% url 'index' %}" class="menu-item">Bienvenida</a>
                     <a href="{% url 'simulacion' %}" class="menu-item">Simulación</a>
                     <a href="{% url 'sobre_el_proyecto' %}" class="menu-item">Sobre el proyecto</a>
                     <a href="{% url 'contacto' %}" class="menu-item">Contacto</a>
+                    <a href="{% url 'robot' %}" class="menu-item">Sobre el robot</a>
                 </div>
             </div>
-            <img src="{% static 'img/robot_bote.png' %}" alt="Logo de robot en bote"
-            width="200px" height="200px">
+            <a href="{% url 'robot' %}">
+                <img src="{% static 'img/robot_bote.png' %}" alt="Logo de robot en bote"
+                width="200px" height="200px">
+            </a>
         </div>
         <hr color=#f7ce3e>
         <div class="body">

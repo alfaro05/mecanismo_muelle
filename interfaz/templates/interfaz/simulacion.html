@@ -2,6 +2,9 @@
 
 {% block title %}Simulación{% endblock %}
 {% block body_content %}
+{% if error_flag %}
+<p class="error">ERROR: Por favor, escriba datos numéricos válidos usando un "." decimal.</p>
+{% endif %}
 <form action="resultados" method="post">
     {% csrf_token %}
     <div class="cool-form">
