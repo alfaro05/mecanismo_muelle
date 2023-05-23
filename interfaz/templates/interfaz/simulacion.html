@@ -3,7 +3,7 @@
 {% block title %}Simulación{% endblock %}
 {% block body_content %}
 {% if error_flag %}
-<p class="error">ERROR: Por favor, escriba datos numéricos válidos usando un "." decimal.</p>
+<p class="error">ERROR: Por favor escriba datos numéricos válidos usando un "." decimal.</p>
 {% endif %}
 <form action="resultados" method="post">
     {% csrf_token %}
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="button-area">
-        <input type="submit" value="Submit" class="cool-button submit-button">
+        <input type="submit" value="Resultados" class="cool-button submit-button">
     </div>
 </form>
     
