@@ -145,9 +145,10 @@ a.run-sim:hover, .menu-item:hover{
     background-color: var(--bg-color);
     color: var(--elements-color);
     min-width:fit-content;
-    width: 10vw;
+    width: 30vw;
     padding: 2vw;
     border:dashed 1px var(--elements-color) ;
+    text-align: center;
 }
 .show-content{
     visibility: visible;
